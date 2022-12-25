@@ -1,4 +1,4 @@
-const defaultColors: { [key: string]: string | undefined } = {
+const defaultStyles: { [key: string]: string | undefined } = {
     //*stylings
     reset: "\x1b[0m",
     bright: "\x1b[1m",
@@ -34,18 +34,23 @@ const defaultColors: { [key: string]: string | undefined } = {
     bg_crimson: "\x1b[48m",
 };
 
-interface Istyles {
+interface Ithemes {
     [key: string]: string[] | undefined;
 }
-interface Icolors {
+interface Istyles {
     [key: string]: string | undefined;
 }
 
-let theme: Istyles = Object.keys(defaultColors).reduce((prev, curr) => ({ ...prev, [curr]: [curr] }), {});
-let styles: Icolors = defaultColors;
+let themes: Ithemes = Object.keys(defaultStyles).reduce((prev, curr) => ({ ...prev, [curr]: [curr] }), {});
+let styles: Istyles = defaultStyles;
 const styledString = {
-    setTheme: (customStyles: Istyles) => (theme = { ...theme, ...customStyles }),
-    setStyles: (customColors: Icolors) => (styles = { ...styles, ...customColors }),
+    /**
+     * Default styles
+     * reset, bright, dim, underscore, blink, reverse, hidden, black, red, green, yellow, blue, magenta, cyan, white, gray, crimson, scarlet, bg_black, bg_red, bg_green, bg_yellow, bg_blue, bg_magenta, bg_cyan, bg_white, bg_gray, bg_crimson
+     * @param customStyles
+     */
+    setThemes: (customStyles: Ithemes) => (themes = { ...themes, ...customStyles }),
+    setStyles: (customColors: Istyles) => (styles = { ...styles, ...customColors }),
     styleString: (str: string) => {
         const styledBlocks = str
             .split("[")
@@ -54,11 +59,13 @@ const styledString = {
         return styledBlocks.reduce((prev, curr) => {
             if (!curr.includes(":")) return str;
             const [styleName, ...theRest] = curr.split(":");
-            const stylings = theme[styleName];
+            const stylings = themes[styleName];
             if (!stylings) return str;
             return prev.replace("[" + curr + "]", stylings.map((str) => styles[str]).join("") + theRest.join(":").trim() + "\x1b[0m");
         }, str);
     },
 };
+
+styledString.setThemes({ test: [""] });
 
 export default styledString;
