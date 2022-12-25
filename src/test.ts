@@ -1,0 +1,1 @@
+import styledString from "./app";

@@ -1,0 +1,20 @@
+{
+    "name": "@jimbui/styled-string",
+    "version": "1.0.0",
+    "description": "a utils package that provides console logs in colors",
+    "main": "build/app.js",
+    "types": "build/app.d.ts",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" &&~ exit 1",
+        "dev": "npx nodemon ./src/app.ts",
+        "build": "rimraf ./build && tsc",
+        "start": "npm run build && node build/app.js"
+    },
+    "keywords": [
+        "node",
+        "console",
+        "log","color","string"
+    ],
+    "author": "Jimmy B",
+    "license": "ISC"
+}
