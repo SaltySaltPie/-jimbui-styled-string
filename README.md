@@ -10,7 +10,7 @@
 ---
 ### **DEMO**
 ![Demo](https://drive.google.com/uc?export=view&id=1zl6Lq3wszbSyaBLrymHlAj0QT_5DLvbo)
-```{JavaScript}
+```javascript
 const demoThemes = {
     header1: ["bright", "fg_red", "underscore"],
     header2: ["dim", "fg_green"],
@@ -53,7 +53,7 @@ yarn add @jimbui/styled-string
 ### **Examples**
 **Set up your theme in an array of the style names**
 
-```{JavaScript}
+```javascript
 const yourCustomedThemes = { headerStyle1: ["fg_red", "underscore"], highlighted: ["bright", "bg_green"] };
 styledString.setThemes(yourCustomedThemes);
 const string1 = "This is an exmple: [[headerStyle1:Header:]].\n And this is also another example:\n :[highlighted: I am Bright and Green]:";
@@ -64,7 +64,7 @@ console.log(styled1);
 
 
 **Need to customize the values and naming of styles?**
-```{JavaScript}
+```javascript
 styledString.setStyles({ myNewStyle: "31" }); //code for foreground red
 const newThemes = { myNewTheme: ["myNewStyle"] };
 styledString.setThemes(newThemes);
