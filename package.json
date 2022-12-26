@@ -1,6 +1,6 @@
 {
     "name": "@jimbui/styled-string",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "a utils package that provides console logs in colors",
     "main": "build/app.js",
     "types": "build/app.d.ts",
