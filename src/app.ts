@@ -5,6 +5,7 @@ interface Ithemes {
 }
 let themes: Ithemes = Object.keys(defaultStyles).reduce((prev, curr) => ({ ...prev, [curr]: [curr] }), {});
 let styles: Istyles = defaultStyles;
+
 const styledString = {
     /**
      * Default styles
@@ -31,6 +32,6 @@ const styledString = {
     },
 };
 
-styledString.setThemes({ test: [""] });
+// styledString.setThemes({ test: [""] });
 
 export default styledString;
